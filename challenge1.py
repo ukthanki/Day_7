@@ -15,32 +15,29 @@ for letter in chosen_word:
 print(chosen_word)
 print(display)
 
-# Guessed Letter input
-guessed_letter = input("Guess a letter: ").lower()
-letter_is_in_word = False
+lives = 6
 
-occurrence = 0
-index_list=[]
+while lives > 0:
+    # Guessed Letter input
+    guessed_letter = input("Guess a letter: ").lower()
+    letter_mismatch = 0
+    # Checking if the letter is in the word
+    for i in range(0, word_length):
+        if chosen_word[i] == guessed_letter:
+            display[i] = guessed_letter
+        else:
+            letter_mismatch += 1
+            if letter_mismatch == word_length:
+                lives -= 1
 
-# Checking if the letter is in the word
-for i in range(0, word_length):
-    if chosen_word[i] == guessed_letter:
-        occurrence += 1
-        display[i] = guessed_letter
-        index_list.append(1)
-    else:
-        index_list.append(0)
+    # for item in index_list:
+    #     if item == 0:
+    #         print("Wrong")
+    #     else:
+    #         print("Right")
 
-if occurrence > 0:
-    letter_is_in_word = True
+    print(display)
 
-# for item in index_list:
-#     if item == 0:
-#         print("Wrong")
-#     else:
-#         print("Right")
+    # if guessed_letter in chosen_word:
+    #     print(True)
 
-print(display)
-
-# if guessed_letter in chosen_word:
-#     print(True)
