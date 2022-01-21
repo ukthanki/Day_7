@@ -2,10 +2,6 @@ import random
 
 word_list = ["ardvark", "baboon", "camel", "lion","jaguar"]
 
-# Choosing a Random Word
-# word_num = random.randint(0, len(word_list)-1)
-# chosen_word = word_list[word_num]
-
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)
 display = []
@@ -29,15 +25,18 @@ while lives > 0:
             letter_mismatch += 1
             if letter_mismatch == word_length:
                 lives -= 1
+               
+    print(f"Lives left: {lives}")
 
-    # for item in index_list:
-    #     if item == 0:
-    #         print("Wrong")
-    #     else:
-    #         print("Right")
+    if lives == 0:
+        print("YOU LOST")
+        print(f"The word was: {chosen_word}")
+    if chosen_word == "".join(display):
+        lives = 0
+        print("YOU WON")
 
     print(display)
+    
+    # print("".join(display))
 
-    # if guessed_letter in chosen_word:
-    #     print(True)
 
